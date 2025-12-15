@@ -111,7 +111,6 @@ class Prestamo(Base):
     fecha_devolucion_prevista = Column(Date, nullable=False)
     fecha_devolucion_real = Column(Date, nullable=True)
     estado = Column(String(20), nullable=False)
-    multa = Column(Numeric(8,2), default=0)
 
     copia = relationship("Copia", back_populates="prestamos")
     usuario = relationship("Usuario", back_populates="prestamos")
