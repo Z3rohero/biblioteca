@@ -23,12 +23,6 @@ sql_statements = [
     CHECK (año_publicacion >= 1500);
     """,
 
-    """
-    ALTER TABLE prestamo
-    ADD CONSTRAINT chk_multa
-    CHECK (multa >= 0);
-    """,
-
     # ======================
     # ÍNDICES
     # ======================

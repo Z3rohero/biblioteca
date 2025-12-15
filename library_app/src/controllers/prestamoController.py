@@ -59,8 +59,7 @@ class PrestamoController:
             id_usuario=id_usuario,
             fecha_prestamo=date.today(),
             fecha_devolucion_prevista=movimiento.fecha_devolucion,
-            estado="activo",
-            multa=0
+            estado="activo"
         )
         
         # Cambiar estado de la copia a "prestado"

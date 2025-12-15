@@ -114,6 +114,7 @@ class Prestamo(Base):
 
     copia = relationship("Copia", back_populates="prestamos")
     usuario = relationship("Usuario", back_populates="prestamos")
+    multas = relationship("Multa", back_populates="prestamo")
 
 class Reserva(Base):
     __tablename__ = 'reserva'
@@ -154,7 +155,7 @@ class Multa(Base):
     fecha_pago = Column(DateTime, nullable=True)
     
     # relaciones
-    prestamo = relationship("Prestamo")
+    prestamo = relationship("Prestamo", back_populates="multas")
     copia_rel = relationship("Copia")
     usuario = relationship("Usuario")
 

@@ -245,9 +245,7 @@ class StudentController:
             # Calcular monto de multa según tabla de valores
             monto_multa = self.calcular_multa(dias_retraso)
             
-            # Guardar monto en el préstamo
-            prestamo.multa = monto_multa
-            
+          
             # Crear registro de multa en la tabla Multa
             nueva_multa = Multa(
                 id_prestamo=prestamo.id_prestamo,

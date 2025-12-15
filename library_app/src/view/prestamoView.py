@@ -137,6 +137,11 @@ class PrestamoView(ft.Column):
             if prestamo.usuario:
                 usuario_nombre = prestamo.usuario.nombre
             
+            # Obtener el monto total de multas pendientes para este préstamo
+            monto_multa = 0
+            if prestamo.multas:
+                monto_multa = sum(float(multa.monto) for multa in prestamo.multas if multa.estado_pago == 'pendiente')
+            
             self.table_prestamos.rows.append(
                 ft.DataRow(
                     cells=[
@@ -147,7 +152,7 @@ class PrestamoView(ft.Column):
                         ft.DataCell(ft.Text(str(prestamo.fecha_prestamo))),
                         ft.DataCell(ft.Text(str(prestamo.fecha_devolucion_prevista))),
                         ft.DataCell(ft.Text(prestamo.estado)),
-                        ft.DataCell(ft.Text(f"${prestamo.multa or 0}")),
+                        ft.DataCell(ft.Text(f"${monto_multa:.2f}")),
                     ]
                 )
             )
